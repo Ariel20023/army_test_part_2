@@ -1,0 +1,40 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: digital_hunter
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./db/dump.sql:/docker-entrypoint-initdb.d/dump.sql
+
+
+
+  # adminer:
+  #   image: adminer
+  #   container_name: adminer
+  #   ports:
+  #     - "8080:8080"
+
+
+  api:
+    build: ./api
+    container_name: api
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: digital_hunter
+    ports:
+      - "9000:9000"
+    
+  
+    
+
+
+
+volumes:
+  mysql_data:
