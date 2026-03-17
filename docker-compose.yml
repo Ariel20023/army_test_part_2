@@ -13,16 +13,12 @@ services:
 
 
 
-  # adminer:
-  #   image: adminer
-  #   container_name: adminer
-  #   ports:
-  #     - "8080:8080"
-
-
   api:
     build: ./api
     container_name: api
+    restart: always
+    depends_on:
+      - mysql
     environment:
       MYSQL_HOST: mysql
       MYSQL_PORT: 3306

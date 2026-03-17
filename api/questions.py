@@ -69,7 +69,9 @@ class Questions:
         
         self.sql_connection.cursor.execute(question,(entity_id,))
         result = self.sql_connection.cursor.fetchall()
-        return plot_map_with_geometry(result)
+        return result
 
+
+        
 
 
