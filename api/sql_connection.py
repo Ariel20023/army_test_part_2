@@ -12,6 +12,7 @@ class SqlConnector:
         self.connection = mysql.connector.connect(
             host= self.host,
             port = self.port,
+            user = "root",
             password = self.password,
             database = self.database
             

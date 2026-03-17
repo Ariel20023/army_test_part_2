@@ -33,5 +33,19 @@ def question_2_analysis_of_collection_sources():
 
 
 @router.get("/finding_new_targets")
-def question_2_finding_new_targets():
+def question_3_finding_new_targets():
     return question.finding_new_targets()
+
+
+
+
+@router.get("/identifying_awakened_sleeping_cells")
+def question_4_identifying_awakened_sleeping_cells():
+    return question.identifying_awakened_sleeping_cells()
+
+
+
+
+@router.get("/visualization_of_a_target_trajectory")
+def question_5_visualization_of_a_target_trajectory(entity_id):
+    return question.visualization_of_a_target_trajectory(entity_id)
